@@ -19,7 +19,7 @@ private Map<BigInteger, BigInteger> memorize = new HashMap<>();
         if(value.compareTo(BigInteger.ZERO) < 0){
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
-        return Response.ok(calculeSequence(value).toString()).build();
+        return Response.ok(calculeSequence(value)).build();
     }
     
     public BigInteger calculeSequence (BigInteger n ){
