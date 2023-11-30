@@ -58,3 +58,19 @@ If you want to learn more about building native executables, please consult http
 Easily start your Reactive RESTful Web Services
 
 [Related guide section...](https://quarkus.io/guides/getting-started-reactive#reactive-jax-rs-resources)
+
+## Test unit
+After run you can use the link below on your browser to test if API is working correctly:
+localhost:8080/labseq/{number}
+
+example:
+http://localhost:8080/labseq/10
+
+output:
+3
+
+### Implementation maded on file:
+src/main/java/org/acme/GreetingResource.java
+
+### Swagger
+http://localhost:8080/q/swagger-ui
