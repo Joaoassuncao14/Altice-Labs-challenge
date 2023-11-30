@@ -3,6 +3,7 @@ package org.acme;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
+import jakarta.ws.rs.core.Response;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
@@ -14,8 +15,11 @@ private Map<BigInteger, BigInteger> memorize = new HashMap<>();
     
     @GET
     @Path("/{value}")
-    public BigInteger getValue(@PathParam("value") BigInteger value) {
-        return calculeSequence(value);
+    public Response getValue(@PathParam("value") BigInteger value) {
+        if(value.compareTo(BigInteger.ZERO) < 0){
+            return Response.status(Response.Status.BAD_REQUEST).build();
+        }
+        return Response.ok(calculeSequence(value).toString()).build();
     }
     
     public BigInteger calculeSequence (BigInteger n ){
